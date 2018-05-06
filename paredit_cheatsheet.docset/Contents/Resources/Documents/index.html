@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Paredit</title>
+<link href='style.css' rel='stylesheet'>
+<link href='//dash_ref/Category/Basic Insertion Commands/1'>
+<link href='//dash_ref_Basic Insertion Commands/Command/(/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/)/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/M-)/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/[/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/]/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/&quot;/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/M-&quot;/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/\/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/M-;/0'>
+<link href='//dash_ref_Basic Insertion Commands/Command/C-j/0'>
+<link href='//dash_ref/Category/Deleting &amp; Killing/1'>
+<link href='//dash_ref_Deleting &amp; Killing/Command/C-d/0'>
+<link href='//dash_ref_Deleting &amp; Killing/Command/DEL/0'>
+<link href='//dash_ref_Deleting &amp; Killing/Command/C-k/0'>
+<link href='//dash_ref_Deleting &amp; Killing/Command/M-d/0'>
+<link href='//dash_ref/Category/Movement &amp; Navigation/1'>
+<link href='//dash_ref_Movement &amp; Navigation/Command/C-M-f/0'>
+<link href='//dash_ref_Movement &amp; Navigation/Command/C-M-b/0'>
+<link href='//dash_ref/Category/Depth-Changing Commands/1'>
+<link href='//dash_ref_Depth-Changing Commands/Command/M-(/0'>
+<link href='//dash_ref_Depth-Changing Commands/Command/M-s/0'>
+<link href='//dash_ref_Depth-Changing Commands/Command/M-&lt;up&gt;/0'>
+<link href='//dash_ref_Depth-Changing Commands/Command/M-&lt;down&gt;/0'>
+<link href='//dash_ref_Depth-Changing Commands/Command/M-r/0'>
+<link href='//dash_ref/Category/Barfage &amp; Slurpage/1'>
+<link href='//dash_ref_Barfage &amp; Slurpage/Command/C-)/0'>
+<link href='//dash_ref_Barfage &amp; Slurpage/Command/C-}/0'>
+<link href='//dash_ref_Barfage &amp; Slurpage/Command/C-(/0'>
+<link href='//dash_ref_Barfage &amp; Slurpage/Command/C-{/0'>
+<link href='//dash_ref/Category/Miscellaneous Commands/1'>
+<link href='//dash_ref_Miscellaneous Commands/Command/M-S/0'>
+<link href='//dash_ref_Miscellaneous Commands/Command/M-J/0'>
+</head>
+<body>
+<header>
+<h1>Paredit</h1>
+</header>
+<article>
+<p></p>
+<section class='category'>
+<h2 id='//dash_ref/Category/Basic Insertion Commands/1'>
+Basic Insertion Commands
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Basic Insertion Commands/Command/(/0'>
+<td class='command'>
+<p>
+<code>(</code>
+</p>
+<p>
+<code>paredit-open-round</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="err">|</span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="err">|</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar |baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar (|baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/)/0'>
+<td class='command'>
+<p>
+<code>)</code>
+</p>
+<p>
+<code>paredit-close-round</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="err">|</span><span class="n">c</span><span class="w"> </span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="err">|</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="c1">; Hello,| world</span><span class="w">&#x000A;</span><span class="c1">; Hello,)| world</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/M-)/0'>
+<td class='command'>
+<p>
+<code>M-)</code>
+</p>
+<p>
+<code>paredit-close-round-and-newline</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="err">|</span><span class="w"> </span><span class="p">))</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="err">|</span><span class="w"> </span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">)</span><span class="w">        &#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="c1">; (Foo.|</span><span class="w">&#x000A;</span><span class="c1">; (Foo.|        </span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/[/0'>
+<td class='command'>
+<p>
+<code>[</code>
+</p>
+<p>
+<code>paredit-open-square</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="err">|</span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">[</span><span class="err">|</span><span class="p">]</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar |baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar [|baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/]/0'>
+<td class='command'>
+<p>
+<code>]</code>
+</p>
+<p>
+<code>paredit-close-round</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">define-key</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="p">[</span><span class="n">frob</span><span class="err">|</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="sc">\'</span><span class="n">frobnicate</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">define-key</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="p">[</span><span class="n">frob</span><span class="p">]</span><span class="err">|</span><span class="w"> </span><span class="sc">\'</span><span class="n">frobnicate</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="c1">; [Bar.|</span><span class="w">&#x000A;</span><span class="c1">; [Bar.]|</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/&quot;/0'>
+<td class='command'>
+<p>
+<code>&quot;</code>
+</p>
+<p>
+<code>paredit-doublequote</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">frob</span><span class="w"> </span><span class="n">grovel</span><span class="w"> </span><span class="err">|</span><span class="n">full</span><span class="w"> </span><span class="n">lexical</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">frob</span><span class="w"> </span><span class="n">grovel</span><span class="w"> </span><span class="s">"|"</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">lexical</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar |baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar \"|baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/M-&quot;/0'>
+<td class='command'>
+<p>
+<code>M-&quot;</code>
+</p>
+<p>
+<code>paredit-meta-doublequote</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar |baz"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"bar baz"</span><span class="w"> </span><span class="err">|</span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="o">#</span><span class="sc">\x</span><span class="w"> </span><span class="s">"baz \\ quux"</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"|(bar #\\x \"baz \\\\ quux\")"</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/\/0'>
+<td class='command'>
+<p>
+<code>\</code>
+</p>
+<p>
+<code>paredit-backslash</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">string</span><span class="w"> </span><span class="o">#</span><span class="err">|</span><span class="p">)</span><span class="w">&#x000A;</span><span class="n">Escaping</span><span class="w"> </span><span class="n">character...</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">string</span><span class="w"> </span><span class="o">#</span><span class="sc">\x</span><span class="err">|</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="s">"foo|bar"</span><span class="w">&#x000A;</span><span class="n">Escaping</span><span class="w"> </span><span class="n">character...</span><span class="w"> </span><span class="p">(</span><span class="s">")&#x000A;"</span><span class="n">foo</span><span class="sc">\"</span><span class="err">|</span><span class="n">bar</span><span class="err">"</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/M-;/0'>
+<td class='command'>
+<p>
+<code>M-;</code>
+</p>
+<p>
+<code>paredit-comment-dwim</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="c1">; baz</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">  </span><span class="c1">; |baz</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="p">(</span><span class="nf">frob</span><span class="w"> </span><span class="n">grovel</span><span class="p">)</span><span class="err">|</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">frob</span><span class="w"> </span><span class="n">grovel</span><span class="p">)</span><span class="w"> </span><span class="c1">;|</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="err">|</span><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">hello-world</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">&#x000A;</span><span class="c1">;;; |</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">hello-world</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Basic Insertion Commands/Command/C-j/0'>
+<td class='command'>
+<p>
+<code>C-j</code>
+</p>
+<p>
+<code>paredit-newline</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">n</span><span class="w"> </span><span class="p">(</span><span class="nf">frobbotz</span><span class="p">)))</span><span class="w"> </span><span class="err">|</span><span class="p">(</span><span class="nf">display</span><span class="w"> </span><span class="p">(</span><span class="nf">+n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">port</span><span class="p">))</span><span class="w">&#x000A;</span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">n</span><span class="w"> </span><span class="p">(</span><span class="nf">frobbotz</span><span class="p">)))</span><span class="w">&#x000A;  </span><span class="err">|</span><span class="p">(</span><span class="nf">display</span><span class="w"> </span><span class="p">(</span><span class="nf">+n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">port</span><span class="p">))</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Deleting &amp; Killing/1'>
+Deleting & Killing
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Deleting &amp; Killing/Command/C-d/0'>
+<td class='command'>
+<p>
+<code>C-d</code>
+</p>
+<p>
+<code>&lt;delete&gt;</code>
+</p>
+<p>
+<code>&lt;deletechar&gt;</code>
+</p>
+<p>
+<code>paredit-forward-delete</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">quu</span><span class="err">|</span><span class="n">x</span><span class="w"> </span><span class="s">"zot"</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">quu</span><span class="err">|</span><span class="w"> </span><span class="s">"zot"</span><span class="p">)</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="p">(</span><span class="nf">quux</span><span class="w"> </span><span class="err">|</span><span class="s">"zot"</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">quux</span><span class="w"> </span><span class="s">"|zot"</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">quux</span><span class="w"> </span><span class="s">"|ot"</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="err">|</span><span class="p">)</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="err">|</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="err">|</span><span class="n">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Deleting &amp; Killing/Command/DEL/0'>
+<td class='command'>
+<p>
+<code>DEL</code>
+</p>
+<p>
+<code>paredit-backward-delete</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="s">"zot"</span><span class="w"> </span><span class="n">q</span><span class="err">|</span><span class="n">uux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="s">"zot"</span><span class="w"> </span><span class="err">|</span><span class="n">uux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="s">"zot"</span><span class="err">|</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="s">"zot|"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="s">"zo|"</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="err">|</span><span class="p">)</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="err">|</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="err">|</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Deleting &amp; Killing/Command/C-k/0'>
+<td class='command'>
+<p>
+<code>C-k</code>
+</p>
+<p>
+<code>paredit-kill</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="err">|</span><span class="w"> </span><span class="c1">; Useless comment!</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="err">|</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="p">(</span><span class="err">|</span><span class="n">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="c1">; Useful comment!</span><span class="w">&#x000A;</span><span class="p">(</span><span class="err">|</span><span class="p">)</span><span class="w"> </span><span class="c1">;Useful comment!</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="err">|</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="c1">; Useless line!</span><span class="w">&#x000A;</span><span class="err">|</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"|bar baz"</span><span class="w">&#x000A;  </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="s">"|"</span><span class="w">&#x000A;  </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Deleting &amp; Killing/Command/M-d/0'>
+<td class='command'>
+<p>
+<code>M-d</code>
+</p>
+<p>
+<code>paredit-forward-kill-word</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="err">|</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="c1">; baz</span><span class="w">&#x000A;</span><span class="p">(</span><span class="err">|</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="c1">;baz</span><span class="w">&#x000A;</span><span class="p">(</span><span class="err">|</span><span class="p">)</span><span class="w"> </span><span class="c1">; baz</span><span class="w">&#x000A;</span><span class="p">()</span><span class="w"> </span><span class="c1">;|</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="c1">;;;| Frobnicate</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">frobnicate</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">&#x000A;</span><span class="c1">;;;|</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">defun</span><span class="w"> </span><span class="n">frobnicate</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">&#x000A;</span><span class="c1">;;;</span><span class="w">&#x000A;</span><span class="p">(</span><span class="err">|</span><span class="w"> </span><span class="n">frobnicate</span><span class="w"> </span><span class="n">...</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Movement &amp; Navigation/1'>
+Movement & Navigation
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Movement &amp; Navigation/Command/C-M-f/0'>
+<td class='command'>
+<p>
+<code>C-M-f</code>
+</p>
+<p>
+<code>paredit-forward</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="err">|</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="p">)</span><span class="err">|</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="p">))</span><span class="err">|</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Movement &amp; Navigation/Command/C-M-b/0'>
+<td class='command'>
+<p>
+<code>C-M-b</code>
+</p>
+<p>
+<code>paredit-backward</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="err">|</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="err">|</span><span class="p">(</span><span class="nf">foo</span><span class="p">)</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span><span class="err">|</span><span class="p">((</span><span class="nf">foo</span><span class="p">)</span><span class="w"> </span><span class="n">bar</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Depth-Changing Commands/1'>
+Depth-Changing Commands
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Depth-Changing Commands/Command/M-(/0'>
+<td class='command'>
+<p>
+<code>M-(</code>
+</p>
+<p>
+<code>paredit-wrap-around</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="err">|</span><span class="n">bar</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="err">|</span><span class="n">bar</span><span class="p">)</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Depth-Changing Commands/Command/M-s/0'>
+<td class='command'>
+<p>
+<code>M-s</code>
+</p>
+<p>
+<code>paredit-splice-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="err">|</span><span class="w"> </span><span class="n">baz</span><span class="p">)</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="err">|</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Depth-Changing Commands/Command/M-&lt;up&gt;/0'>
+<td class='command'>
+<p>
+<code>M-&lt;up&gt;</code>
+</p>
+<p>
+<code>ESC &lt;up&gt;</code>
+</p>
+<p>
+<code>paredit-splice-killing-backward</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="p">(</span><span class="nf">bc</span><span class="err">|</span><span class="n">de</span><span class="p">)</span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="err">|</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Depth-Changing Commands/Command/M-&lt;down&gt;/0'>
+<td class='command'>
+<p>
+<code>M-&lt;down&gt;</code>
+</p>
+<p>
+<code>ESC &lt;down&gt;</code>
+</p>
+<p>
+<code>paredit-splice-killing-forward</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="p">(</span><span class="nf">bc</span><span class="err">|</span><span class="n">de</span><span class="p">)</span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="err">|</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Depth-Changing Commands/Command/M-r/0'>
+<td class='command'>
+<p>
+<code>M-r</code>
+</p>
+<p>
+<code>paredit-raise-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">dynamic-wind</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="nf">lambda</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="err">|</span><span class="n">body</span><span class="p">)</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">dynamic-wind</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="err">|</span><span class="n">body</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Barfage &amp; Slurpage/1'>
+Barfage & Slurpage
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Barfage &amp; Slurpage/Command/C-)/0'>
+<td class='command'>
+<p>
+<code>C-)</code>
+</p>
+<p>
+<code>C-&lt;right&gt;</code>
+</p>
+<p>
+<code>paredit-forward-slurp-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="err">|</span><span class="n">baz</span><span class="p">)</span><span class="w"> </span><span class="n">quux</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="err">|</span><span class="n">baz</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">((</span><span class="nf">c</span><span class="err">|</span><span class="w"> </span><span class="n">d</span><span class="p">))</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">((</span><span class="nf">c</span><span class="err">|</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Barfage &amp; Slurpage/Command/C-}/0'>
+<td class='command'>
+<p>
+<code>C-}</code>
+</p>
+<p>
+<code>C-&lt;left&gt;</code>
+</p>
+<p>
+<code>paredit-forward-barf-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="err">|</span><span class="n">baz</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="err">|</span><span class="n">baz</span><span class="p">)</span><span class="w"> </span><span class="n">quux</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Barfage &amp; Slurpage/Command/C-(/0'>
+<td class='command'>
+<p>
+<code>C-(</code>
+</p>
+<p>
+<code>C-M-&lt;left&gt;</code>
+</p>
+<p>
+<code>ESC C-&lt;left&gt;</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="p">(</span><span class="nf">baz</span><span class="err">|</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="err">|</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">ab</span><span class="p">((</span><span class="nf">c</span><span class="err">|</span><span class="n">d</span><span class="p">))</span><span class="n">ef</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="p">(</span><span class="nf">b</span><span class="w"> </span><span class="p">(</span><span class="nf">c</span><span class="err">|</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Barfage &amp; Slurpage/Command/C-{/0'>
+<td class='command'>
+<p>
+<code>C-{</code>
+</p>
+<p>
+<code>C-M-&lt;right&gt;</code>
+</p>
+<p>
+<code>ESC C-&lt;right&gt;</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="p">(</span><span class="nf">bar</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="err">|</span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">foo</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="p">(</span><span class="nf">baz</span><span class="w"> </span><span class="err">|</span><span class="n">quux</span><span class="p">)</span><span class="w"> </span><span class="n">zot</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class='category'>
+<h2 id='//dash_ref/Category/Miscellaneous Commands/1'>
+Miscellaneous Commands
+</h2>
+<div class='scrollable'>
+<table>
+<tr id='//dash_ref_Miscellaneous Commands/Command/M-S/0'>
+<td class='command'>
+<p>
+<code>M-S</code>
+</p>
+<p>
+<code>paredit-split-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">hello</span><span class="err">|</span><span class="w"> </span><span class="n">world</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">hello</span><span class="p">)</span><span class="err">|</span><span class="w"> </span><span class="p">(</span><span class="nf">world</span><span class="p">)</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="s">"Hello, |world!"</span><span class="w">&#x000A;</span><span class="s">"Hello, "</span><span class="err">|</span><span class="w"> </span><span class="s">"world!"</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+<tr id='//dash_ref_Miscellaneous Commands/Command/M-J/0'>
+<td class='command'>
+<p>
+<code>M-J</code>
+</p>
+<p>
+<code>paredit-join-sexp</code>
+</p>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="p">(</span><span class="nf">hello</span><span class="p">)</span><span class="err">|</span><span class="w"> </span><span class="p">(</span><span class="nf">world</span><span class="p">)</span><span class="w">&#x000A;</span><span class="p">(</span><span class="nf">hello</span><span class="err">|</span><span class="w"> </span><span class="n">world</span><span class="p">)</span><span class="w">&#x000A;</span></pre><pre class="highlight clojure"><span class="s">"Hello, "</span><span class="err">|</span><span class="w"> </span><span class="s">"world!"</span><span class="w">&#x000A;</span><span class="s">"Hello, |world!"</span><span class="w">&#x000A;</span></pre></div>
+</td>
+<td class='td_notes'>
+<div class='td_notes'><pre class="highlight clojure"><span class="n">hello-</span><span class="w">&#x000A;</span><span class="err">|</span><span class="w"> </span><span class="n">world</span><span class="w">&#x000A;</span><span class="n">hello-</span><span class="err">|</span><span class="n">world</span><span class="w">&#x000A;</span></pre></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+</article>
+<footer>
+You can modify and improve this cheat sheet <a onclick="window.dash.openExternal_(this.href); return false;" href="https://github.com/mnewt/paredit_cheatsheet">here</a>
+</footer>
+</body>
+</html>
