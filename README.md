@@ -14,9 +14,13 @@ Paredit Cheat Sheet
 
 1. Open Dash
 2. Preferences
-3. +
+3. '+'
 4. Add Local Docset
 5. Point it to `paredit_cheatsheet.docset`
+
+# Source
+
+This is a (hopefully) verbatim translation of [the PDF version](https://github.com/joelittlejohn/paredit-cheatsheet)
 
 # Dash Cheat Sheets 
 
@@ -45,3 +49,9 @@ Try to use [Title Case](http://en.wikipedia.org/wiki/Letter_case#Title_case) onl
 Try not to include really common keyboard shortcuts (e.g. Copy, Paste, Undo, Select All).
 
 Keyboard modifiers should be listed in this order: `CMD+CTRL+ALT+SHIFT`.
+
+# License
+
+Copyright © 2018 Matthew Newton, 2013 Joe Littlejohn, 2008 drenweb.usma.edu
+
+Released under the [GNU Free Documentation License](http://www.emacswiki.org/FDL).
